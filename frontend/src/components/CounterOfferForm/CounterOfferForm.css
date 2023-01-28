@@ -1,0 +1,9 @@
+.offer-btn {
+  background-color: rgba(255, 255, 255, 0.703) !important;
+  color: black !important;
+  border-color: transparent !important;
+  font-family: "Sofia Sans", sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  margin-right:7px;
+}

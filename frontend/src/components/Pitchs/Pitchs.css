@@ -1,0 +1,15 @@
+div h6{
+  font-family: "Sofia Sans", sans-serif !important;
+  font-weight: 500;
+  font-size:1rem;
+  color: rgb(28, 28, 28);
+  margin-bottom : 5px;
+}
+.counter-button {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.counter-button div{
+    margin-top:4px;
+}
