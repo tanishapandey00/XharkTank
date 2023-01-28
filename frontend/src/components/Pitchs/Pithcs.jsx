@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CounterOfferForm from "../../components/CounterOfferForm/CounterOfferForm";
-import CounterOffers from "../CounterOffers/CounterOffers.jsx";
 import ShowOffer from "../ShowOffer/ShowOffer";
 import "./Pitchs.css";
 function Pithcs(props) {

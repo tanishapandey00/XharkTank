@@ -5,6 +5,7 @@ import LogoBig from "../../image/Logo1.png";
 import Cartoon from "../../image/human.png";
 import PitchIdea from "../PitchIdea/PitchIdea";
 import Pithcs from "../Pitchs/Pithcs";
+import DefaultBox from "../Pitchs/DefaultBox";
 function LandingPage() {
   //Pitchs
   const [pitchs, setPitchs] = useState([]);
@@ -37,7 +38,7 @@ function LandingPage() {
       );
     });
   };
-
+  console.log(pitchs.length);
   return (
     <>
       <Container fluid className="bgImage">
@@ -48,7 +49,10 @@ function LandingPage() {
           <div className="image-parent">
             <img src={LogoBig} alt="logo1" className="logo2"></img>
             <img src={Cartoon} alt="cartoon" className="cartoon"></img>
-            <div>{pitchList()}</div>
+            <div>
+              {pitchs.length == 0 && <DefaultBox></DefaultBox>}
+              {pitchList()}
+            </div>
           </div>
           <div></div>
         </div>
