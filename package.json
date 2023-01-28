@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon backend/index.js"
+    "server": "nodemon backend/index.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/tanishapandey00/XharkTank.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
   "author": "Tanisha Pandey",
   "license": "ISC",
   "dependencies": {
