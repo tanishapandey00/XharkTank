@@ -3,8 +3,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 //routes
 const postRoutes = require("./routes/pitches");
+const userRoutes = require("./routes/users");
 
 const app = express();
 dotenv.config();
@@ -23,6 +25,22 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use("/", postRoutes);
+app.use("/", userRoutes);
+
+//curb cores error by adding a header here
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  );
+  next();
+});
+
 app.get("/", async (req, res) => {
   res.send("Started");
 });
@@ -33,7 +51,11 @@ const url = process.env.URL;
 //   socketTimeoutMS: 5000,
 //   useUnifiedTopology: true,
 // };
-mongoose.connect(url, { usenewUrlParser: true });
+mongoose
+  .connect(url, { usenewUrlParser: true })
+  .then(console.log("Database COnnected"))
+
+  .catch((err) => console.log(err));
 //
 // db.once("open", (_) => {
 //   console.log("Database connected:", url);
